@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart | Joy In A Box</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+<div class="top-icons">
+<a href="cart.html">Cart</a>
+</div>
+<script>
+
+const cartItems = JSON.parse(localStorage.getItem("joyCart")) || [];
+
+console.log(cartItems);
+
+</script>
+
+<div class="logo">
+<a href="index.html">Joy In A Box</a>
+</div>
+
+</header>
+
+<body>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="decor.html">Décor</a></li>
+<li><a href="made-to-order.html">Made-To-Order</a></li>
+<li><a href="fluff-snuggles.html">Fluff & Snuggles</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<section class="cart-page">
+
+<h1>Your Shopping Cart</h1>
+
+<p>Your selected items will appear here.</p>
+
+<div class="cart-box">
+
+<p>No items in your cart yet.</p>
+
+<a href="decor.html" class="shop-btn">Continue Shopping</a>
+
+</div>
+
+</section>
+<script>
+const cartPayload = {
+  items: [
+    {
+      id: "decor01",
+      name: "Elegant Wall Mirror",
+      price: 250,
+      quantity: 1,
+      image: "images/wall-mirror.jpg"
+    },
+    {
+      id: "snuggle02",
+      name: "Luxury Throw Blanket",
+      price: 180,
+      quantity: 2,
+      image: "images/blanket.jpg"
+    }
+  ],
+  totalItems: 3,
+  totalPrice: 610
+};
+</script>
+<div class="product-card">
+
+<img src="images/wall-mirror.jpg" alt="Wall Mirror">
+
+<h3>Elegant Wall Mirror</h3>
+
+<p>M250</p>
+
+<button onclick="addToCart('decor01','Elegant Wall Mirror',250,'images/wall-mirror.jpg')">
+Add to Cart
+</button>
+
+</div>
+<script>
+
+let cart = [];
+
+function addToCart(id, name, price, image){
+
+const item = {
+id: id,
+name: name,
+price: price,
+quantity: 1,
+image: image
+};
+
+cart.push(item);
+
+localStorage.setItem("joyCart", JSON.stringify(cart));
+
+alert("Item added to cart");
+
+}
+
+</script>
+
+<footer>
+
+<p>Joy In A Box © 2026</p>
+
+</footer>
+
+</body>
+
+</html>
